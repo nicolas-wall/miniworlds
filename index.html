@@ -3,21 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Worlds AR</title>
-    <!-- A-Frame -->
-    <script src="https://cdn.jsdelivr.net/npm/aframe@1.2.0/dist/aframe.min.js"></script>
-    <!-- AR.js -->
-    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <title>Camera Test</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs="sourceType: webcam; renderer: { antialias: true, alpha: true }">
-        <!-- Marker Pattern -->
-        <a-marker type="pattern" url="https://nicolas-wall.github.io/miniworlds/pattern-marker.patt">
-            <!-- 3D Object (box for now) -->
-            <a-box position="0 0.5 0" scale="0.5 0.5 0.5" color="red"></a-box>
-        </a-marker>
-        <!-- Camera for AR -->
-        <a-entity camera></a-entity>
+    <a-scene embedded>
+        <!-- Basic Camera -->
+        <a-camera></a-camera>
     </a-scene>
 </body>
 </html>
