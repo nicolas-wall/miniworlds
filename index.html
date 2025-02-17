@@ -4,30 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini Worlds AR</title>
-
-    <!-- A-Frame & AR.js libraries (using AR.js 2.2.0 for compatibility) -->
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@2.2.0/aframe/build/aframe-ar.min.js"></script>
+    <!-- A-Frame -->
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.2.0/dist/aframe.min.js"></script>
+    <!-- AR.js -->
+    <script src="https://cdn.jsdelivr.net/npm/ar.js@3.2.0/aframe/build/aframe-ar.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
-<a-scene embedded arjs="sourceType: webcam;">
-        <!-- Marker with correct pattern file -->
+    <a-scene embedded arjs="sourceType: webcam; renderer: { antialias: true, alpha: true }">
+        <!-- Marker Pattern -->
         <a-marker type="pattern" url="https://nicolas-wall.github.io/miniworlds/pattern-marker.patt">
-            <!-- Default Box -->
+            <!-- 3D Object (box for now) -->
             <a-box position="0 0.5 0" scale="0.5 0.5 0.5" color="red"></a-box>
         </a-marker>
-
+        <!-- Camera for AR -->
         <a-entity camera></a-entity>
     </a-scene>
-
-    <p id="status" style="position: fixed; top: 10px; left: 10px; background: white; padding: 5px; font-size: 18px;">
-        Loading...
-    </p>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("status").innerText = "Point at the marker to see the red box!";
-        });
-    </script>
 </body>
 </html>
