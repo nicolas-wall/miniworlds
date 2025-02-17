@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Camera Test</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 </head>
-<body style="margin: 0; overflow: hidden;">
-    <a-scene embedded>
-        <!-- Basic Camera -->
-        <a-camera></a-camera>
-    </a-scene>
+<body>
+    <h1>Testing Camera</h1>
+    <video id="videoElement" width="640" height="480" autoplay></video>
+
+    <script>
+        const video = document.getElementById('videoElement');
+
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(err => {
+                console.log("Error accessing camera: ", err);
+            });
+    </script>
 </body>
 </html>
